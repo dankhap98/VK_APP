@@ -10,19 +10,25 @@ import com.vk.api.sdk.auth.VKAuthCallback
 import com.vk.api.sdk.auth.VKScope
 import com.vk.api.sdk.utils.VKUtils
 
+
 class MainActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val authLauncher = VK.login(this,  arrayListOf(VKScope.WALL, VKScope.GROUPS))
 
+        val authLauncher = VK.login(this,  arrayListOf(VKScope.WALL, VKScope.GROUPS))
+        
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        Log.e("TAGG", "here5")
+
         val callback = object: VKAuthCallback{
             override fun onLogin(token: VKAccessToken) {
-
+                Log.e("TAGG", "here3")
             }
 
             override fun onLoginFailed(errorCode: Int) {
